@@ -22,6 +22,10 @@
                 <span class="logo-text">CallSafe</span>
             </div>
             <div class="nav-links">
+                <button class="nav-btn" data-page="contact">
+                   <span class="nav-icon">✉️</span>
+                   <span>Kontakt</span>
+                </button>
                 <button class="nav-btn active" data-page="check">
                     <span class="nav-icon">🔍</span>
                     <span>Prüfen</span>
@@ -50,6 +54,48 @@
     <main class="main-content">
         
         <!-- Check Page -->
+        <section id="contact-page" class="page">
+    <div class="page-header">
+        <h1>Kontakt</h1>
+        <p class="subtitle">Fragen oder Feedback? Schreiben Sie uns.</p>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-form">
+
+            <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" placeholder="Ihr Name">
+            </div>
+
+            <div class="form-group">
+                <label for="contact-email">E-Mail</label>
+                <input type="email" id="contact-email" placeholder="Ihre E-Mail">
+            </div>
+
+            <div class="form-group">
+                <label for="contact-message">Nachricht</label>
+                <textarea id="contact-message" rows="5"
+                placeholder="Ihre Nachricht..."></textarea>
+            </div>
+
+            <button id="contact-submit" class="btn btn-primary">
+                Nachricht senden
+            </button>
+
+        </div>
+
+        <div id="contact-success" class="report-success hidden">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h3>Vielen Dank!</h3>
+                <p>Ihre Nachricht wurde gesendet.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
         <section id="check-page" class="page active">
             <div class="page-header">
                 <h1>Nummer Prüfen</h1>
