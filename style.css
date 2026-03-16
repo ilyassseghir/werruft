@@ -1094,4 +1094,15 @@ body {
     .loading-overlay {
         display: none;
     }
+.contact-container{
+    max-width:600px;
+    margin:auto;
+}
+
+.contact-form{
+    background:var(--color-surface);
+    padding:var(--space-2xl);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-lg);
+}
 }
