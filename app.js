@@ -464,6 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeQuizPage();
     initializeReportPage();
     initializeAdminPage();
+    initializeContactPage();
     initializePWA();
     loadStats();
 });
@@ -985,7 +986,42 @@ function loadStats() {
     
     updateStatsDisplay();
 }
+function initializeContactPage(){
 
+    const btn = document.getElementById("contact-submit");
+
+    if(!btn) return;
+
+    btn.addEventListener("click", submitContact);
+}
+
+async function submitContact(){
+
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+
+    if(!message){
+        alert("Bitte eine Nachricht eingeben");
+        return;
+    }
+
+    showLoading();
+
+    const success = await window.DB.sendContact(name,email,message);
+
+    hideLoading();
+
+    if(success){
+
+        document.querySelector(".contact-form").style.display="none";
+        document.getElementById("contact-success").classList.remove("hidden");
+
+    }else{
+
+        alert("Fehler beim Senden");
+    }
+}
 // PWA Functions
 function initializePWA() {
     let deferredPrompt;
