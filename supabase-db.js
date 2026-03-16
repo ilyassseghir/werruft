@@ -166,7 +166,28 @@ async function checkNumberInDB(phoneNumber) {
         action: 'Bei Geldforderung oder Druck: sofort auflegen und melden.'
       };
     }
+async function sendContactToDB(name,email,message){
 
+  try{
+
+    const {error} = await supabaseClient
+    .from("contacts")
+    .insert([{
+        name:name,
+        email:email,
+        message:message
+    }]);
+
+    if(error) throw error;
+
+    return true;
+
+  }catch(e){
+
+    console.error(e);
+    return false;
+  }
+}
     const count = data.reports_count ?? 0;
     const statusLevel = count >= 5 ? 'danger' : (count >= 3 ? 'warning' : 'safe');
 
@@ -211,7 +232,8 @@ window.DB = {
     getStatistics: getStatisticsFromDB,
     getTopNumbers: getTopNumbersFromDB,
     searchNumbers: searchNumbersInDB,
-    deleteNumber: deleteNumberFromDB
+    deleteNumber: deleteNumberFromDB,
+    sendContact: sendContactToDB
 };
 
 console.log('✅ CallSafe Datenbank verbunden!');
